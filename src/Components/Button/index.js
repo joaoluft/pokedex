@@ -1,3 +1,3 @@
-export const Button = ({ props, children }) => {
-    return <button {...props} >{children}</button>
+export const Button = ({ children, ...props }) => {
+    return <button {...props}>{children}</button>
 }

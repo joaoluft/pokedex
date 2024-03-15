@@ -1,3 +1,3 @@
-export const InputText = ({ props }) => {
+export const InputText = ({ ...props }) => {
     return <input {...props} />
 }
