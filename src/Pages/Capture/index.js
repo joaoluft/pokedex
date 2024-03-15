@@ -6,7 +6,6 @@ import { LanguageSelector } from "../../Components/LanguageSelector";
 export const Capture = () => {
 
     const { config, setConfig } = useContext(PokedexContext);
-    console.log(config)
 
     return (
         <main>

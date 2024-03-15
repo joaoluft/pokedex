@@ -1,11 +1,18 @@
-import { Button } from "../../Components/Button"
-import { InputText } from "../../Components/InputText"
+import { FirstStep, SecondStep } from "../../Components/Start"
 
 export const Start = () => {
     return (
-        <div>
-            <InputText type="text" placeholder="Insira Seu Nome" />
-            <Button>Iniciar</Button>
-        </div>
+        <main className="
+        flex 
+        items-center 
+        justify-center
+        h-screen 
+        bg-gradient-to-r 
+        from-[#3c5aa6]
+        to-[#2a75bb]
+        ">
+            
+            <SecondStep />
+        </main>
     )
 }
