@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Red",
+    "icon": "red.png",
+    "gender": "male"
+  },
+  {
+    "id": 1,
+    "name": "teste",
+    "icon": "",
+    "gender": "female"
+  }
+]
