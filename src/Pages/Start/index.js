@@ -23,10 +23,8 @@ export const Start = () => {
         switch (step) {
           case 1:
             return <FirstStep stepControl={setStep} setUserData={setData} />;
-
           case 2:
             return <SecondStep userData={data} />;
-
           default:
             return <FirstStep />;
         }
