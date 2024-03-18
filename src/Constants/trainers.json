@@ -6,9 +6,34 @@
     "gender": "male"
   },
   {
-    "id": 1,
-    "name": "teste",
-    "icon": "",
+    "id": 2,
+    "name": "Ethan",
+    "icon": "ethan.png",
+    "gender": "male"
+  },
+  {
+    "id": 3,
+    "name": "Brendan",
+    "icon": "brendan.png",
+    "gender": "male"
+  },
+  {
+    "id": 4,
+    "name": "Elaine",
+    "icon": "elaine.png",
+    "gender": "female"
+  },
+  {
+    "id": 5,
+    "name": "May",
+    "icon": "may.png",
+    "gender": "female"
+  },
+  {
+    "id": 6,
+    "name": "Dawn",
+    "icon": "dawn.png",
     "gender": "female"
   }
+
 ]
