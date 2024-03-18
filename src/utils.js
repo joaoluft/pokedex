@@ -20,26 +20,15 @@ export const getPokemonsData = async ({ quantity, search, types, language }) => 
 }
 
 export const getTrainersData = async () => {
-
-    let filteredTrainers = {
-        male: [],
-        female: []
-    };
-
-    trainers.forEach(async (trainer) => {
-        const trainerIcon = await import(`./Assets/Images/Trainers/${trainer.icon}`).then((module) => {
-            return module.default;
-        }).catch(err => {
-            console.error("Não foi possível carregar o som do personagem", err);
-        });
-
-        filteredTrainers[trainer.gender].push({
+    const mountedTrainers = await Promise.all(trainers.map(async (trainer) => {
+        const module = await import(`./Assets/Images/Trainers/${trainer.icon}`);
+        return {
             id: trainer.id,
             name: trainer.name,
-            icon: trainerIcon,
+            icon: module.default,
             gender: trainer.gender
-        });
-    });
+        };
+    }));
 
-    return filteredTrainers;
+    return mountedTrainers;
 }
