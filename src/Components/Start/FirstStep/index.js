@@ -28,7 +28,7 @@ export const FirstStep = ({ stepControl, setUserData }) => {
           required
           type="text"
           name="username"
-          placeholder="Insira Seu Nome"
+          placeholder="INSIRA SEU NOME"
         />
         <Button type="submit">Iniciar</Button>
         <p className="text-center text-yellow-500 font-medium">{error}</p>

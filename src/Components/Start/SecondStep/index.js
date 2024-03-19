@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTrainersData } from "./../../../utils";
 import unknown from "./../../../Assets/Images/Trainers/unknown.png";
 
-export const SecondStep = ({ userData }) => {
+export const SecondStep = ({ userData, setUserData, stepControl }) => {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,8 @@ export const SecondStep = ({ userData }) => {
   }, []);
 
   const selectCharacterHandler = (key) => {
-    console.log(key)
+    setUserData((prevData) => ({ ...prevData, trainer: key }));
+    stepControl(3);
   };
 
   return (

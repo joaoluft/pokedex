@@ -22,13 +22,28 @@ export const getPokemonsData = async ({ quantity, search, types, language }) => 
 export const getTrainersData = async () => {
     const mountedTrainers = await Promise.all(trainers.map(async (trainer) => {
         const module = await import(`./Assets/Images/Trainers/${trainer.icon}`);
-        return {
-            id: trainer.id,
-            name: trainer.name,
-            icon: module.default,
-            gender: trainer.gender
-        };
+        return { ...trainer, icon: module.default };
     }));
 
     return mountedTrainers;
+}
+
+export const getTrainerData = async (id) => {
+    const trainer = trainers[id];
+    const module = await import(`./Assets/Images/Trainers/${trainer.icon}`);
+    return { ...trainer, icon: module.default };
+}
+
+export const getPokemonsTypes = async () => {
+    let types = [];
+
+    pokemons.forEach(pokemon => {
+        pokemon.type.forEach(type => {
+            if (!types.includes(type)) {
+                types.push(type);
+            }
+        });
+    });
+
+    return types;
 }

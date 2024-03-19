@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FirstStep, SecondStep } from "../../Components/Start";
+import { FirstStep, SecondStep, ThirdStep } from "../../Components/Start";
 import { UserContext } from "../../Contexts/UserContext";
 
 export const Start = () => {
@@ -24,9 +24,11 @@ export const Start = () => {
           case 1:
             return <FirstStep stepControl={setStep} setUserData={setData} />;
           case 2:
-            return <SecondStep userData={data} />;
+            return <SecondStep userData={data} setUserData={setData} stepControl={setStep} />;
+          case 3:
+            return <ThirdStep userData={data} setUserData={setData} />;
           default:
-            return <FirstStep />;
+            return <FirstStep stepControl={setStep} setUserData={setData} />;
         }
       })()}
     </main>

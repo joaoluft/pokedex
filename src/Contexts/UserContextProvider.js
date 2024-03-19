@@ -4,8 +4,9 @@ import { UserContext } from "./UserContext";
 export const UserContextProvider = ({ children }) => {
   const [data, setData] = useState({
     username: "",
-    character: "",
+    trainer: null,
     capturedPokemons: [],
+    tutorial: false
   });
 
   return (
