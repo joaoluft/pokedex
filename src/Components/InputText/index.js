@@ -7,7 +7,6 @@ export const InputText = ({ ...props }) => {
     text-lg
     font-medium
     text-center
-    uppercase
     placeholder:text-gray-400
     border
     border-[#c7a008]
