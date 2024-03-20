@@ -1,63 +1,65 @@
-import { useEffect, useState } from "react";
-import { getTrainersData } from "./../../../utils";
+import { useSecondStep } from "./useSecondStep";
 import unknown from "./../../../Assets/Images/Trainers/unknown.png";
+import { useSpring, animated } from "react-spring";
 
 export const SecondStep = ({ userData, setUserData, stepControl }) => {
-  const [trainers, setTrainers] = useState([]);
+  const { trainers, isLoading } = useSecondStep();
 
-  useEffect(() => {
-    getTrainersData()
-      .then((res) => {
-        setTrainers(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  const fadeAnim = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 500 },
+  });
 
   const selectCharacterHandler = (key) => {
     setUserData((prevData) => ({ ...prevData, trainer: key }));
     stepControl(3);
   };
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <section>
-      <h1 className="text-3xl text-center font-bold pb-6 text-white">Olá, {userData && userData.username}</h1>
-      <h2 className="text-white font-bold text-center pb-6 text-2xl">
-        Escolha seu treinador(a)
-      </h2>
-      <div className="flex flex-col gap-4">
+    <animated.div style={fadeAnim} className="transition-opacity">
+      <section>
+        <h1 className="text-3xl text-center font-bold pb-6 text-white">Olá, {userData && userData.username}</h1>
+        <h2 className="text-white font-bold text-center pb-6 text-2xl">
+          Escolha seu treinador(a)
+        </h2>
+        <div className="flex flex-col gap-4">
 
-        <div className="flex justify-center gap-6 flex-wrap">{trainers.map((trainer) => (
-          <div
-            className="w-1/4 flex flex-col gap-2 items-center cursor-pointer hover:scale-105 transition-transform"
-            key={trainer.id}
-            onClick={() => selectCharacterHandler(trainer.id)}
-          >
-            <img
-              draggable="false"
-              className="rounded-full w-32 h-32 bg-gray-50/50 border border-white "
-              src={trainer.icon}
-              alt={trainer.name}
-            />
-            <p className="text-white">{trainer.name}</p>
+          <div className="flex justify-center gap-6 flex-wrap">
+            {trainers.map((trainer) => (
+              <div
+                className="w-1/4 flex flex-col gap-2 items-center cursor-pointer hover:scale-105 transition-transform"
+                key={trainer.id}
+                onClick={() => selectCharacterHandler(trainer.id)}
+              >
+                <img
+                  draggable="false"
+                  className="rounded-full w-24 h-24 md:w-32 md:h-32 bg-gray-50/50 border border-white "
+                  src={trainer.icon}
+                  alt={trainer.name}
+                />
+                <p className="text-white">{trainer.name}</p>
+              </div>
+            ))}
           </div>
-        )
-        )}
-        </div>
 
-        <div className="flex item-center justify-center">
-          <div onClick={() => selectCharacterHandler(null)} className="cursor-pointer hover:scale-105 transition-transform">
-            <img
-              src={unknown}
-              draggable="false"
-              className="rounded-full w-32 h-32 bg-gray-50/50 border border-white"
-              alt="Personagem indefinido"
-            />
-            <p className="text-center text-white pt-2">Nenhum</p>
+          <div className="flex item-center justify-center">
+            <div onClick={() => selectCharacterHandler(null)} className="cursor-pointer hover:scale-105 transition-transform">
+              <img
+                src={unknown}
+                draggable="false"
+                className="rounded-full w-24 h-24 md:w-32 md:h-32 bg-gray-50/50 border border-white"
+                alt="Personagem indefinido"
+              />
+              <p className="text-center text-white pt-2">Nenhum</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </animated.div>
   );
 };
