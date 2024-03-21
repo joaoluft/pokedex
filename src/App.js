@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Start } from "./Pages/Start";
-import { Capture } from "./Pages/Capture";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Start, Capture, Profile } from "./Pages";
 import { PokedexContextProvider } from "./Contexts/PokedexContextProvider";
 import { UserContextProvider } from "./Contexts/UserContextProvider";
 
@@ -12,7 +11,8 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Start />} />
             <Route path="/capture" element={<Capture />} />
-            <Route path="/profile" element={<h1> profile </h1>} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
       </UserContextProvider>

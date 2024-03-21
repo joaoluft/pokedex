@@ -7,8 +7,7 @@ export const Start = () => {
   const { data, setData } = useContext(UserContext);
 
   return (
-    <main
-      className="
+    <main className="
         flex 
         items-center 
         justify-center
@@ -17,8 +16,7 @@ export const Start = () => {
         from-[#3c5aa6]
         to-[#2a75bb]
         select-none
-        "
-    >
+        overflow-auto">
       {(() => {
         switch (step) {
           case 1:
