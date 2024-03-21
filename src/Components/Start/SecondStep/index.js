@@ -17,11 +17,11 @@ export const SecondStep = ({ userData, setUserData, stepControl }) => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Carregando...</div>;
   }
 
   return (
-    <animated.div style={fadeAnim} className="transition-opacity">
+    <animated.div style={fadeAnim}>
       <section>
         <h1 className="text-3xl text-center font-bold pb-6 text-white">Olá, {userData && userData.username}</h1>
         <h2 className="text-white font-bold text-center pb-6 text-2xl">

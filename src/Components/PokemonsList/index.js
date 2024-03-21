@@ -6,10 +6,14 @@ import { LanguageSelector } from '../LanguageSelector';
 import { typesColors } from '../../Constants/types';
 import { animated, useSpring } from 'react-spring';
 import { PokedexContext } from "./../../Contexts/PokedexContext";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { PokemonModal } from '../PokemonModal';
 
 export const PokemonsList = () => {
   const { config, setConfig } = useContext(PokedexContext);
+
+  const [modalData, setModalData] = useState({});
+
   const {
     pokemons,
     types,
@@ -36,6 +40,8 @@ export const PokemonsList = () => {
 
   return (
     <animated.div style={fadeAnim}>
+      <PokemonModal data={modalData} onClose={() => setModalData({open: false})} />
+
       <section className="flex flex-col items-center justify-center pt-10 pb-24">
         <div className="grid sm:flex gap-4 items-center justify-center">
           <LanguageSelector />
@@ -80,10 +86,9 @@ export const PokemonsList = () => {
           {pokemons &&
             pokemons.map((pokemon) => (
               <div
+                onClick={() => setModalData({current: pokemon, open: true})}
                 className="
                   cursor-pointer 
-                  transition-transform 
-                  hover:scale-105 
                   flex flex-col 
                   justify-center 
                   bg-gray-100 
@@ -92,6 +97,7 @@ export const PokemonsList = () => {
                 key={pokemon.id}
               >
                 <img
+                draggable="false"
                   className="bg-gray-200/75 p-3 rounded-lg"
                   src={pokemon.icon}
                   alt=""
@@ -105,8 +111,7 @@ export const PokemonsList = () => {
                   {pokemon.type.map((type) => (
                     <div
                       key={type + pokemon.id}
-                      className={`text-gray-100 text-xs rounded-lg px-2 py-1 bg-[${typesColors[type]}]`}
-                    >
+                      className={`text-gray-100 text-xs rounded-lg px-2 py-1 bg-[${typesColors[type]}]`}>
                       {type}
                     </div>
                   ))}

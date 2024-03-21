@@ -1,5 +1,6 @@
 import pokemons from "./Constants/pokedex.json";
 import trainers from "./Constants/trainers.json";
+import unknown from "./Assets/Images/Trainers/unknown.png";
 
 const padStartZero = (number) => {
   const length = 3;
@@ -39,9 +40,11 @@ export const getPokemonsData = async ({
       const pokemonIcon = await import(
         `./Assets/Images/Pokemons/${padStartZero(pokemon.id)}.png`
       );
+
       return { ...pokemon, icon: pokemonIcon.default };
     })
   );
+  
   return filteredList;
 };
 
@@ -59,7 +62,8 @@ export const getTrainersData = async () => {
 };
 
 export const getTrainerData = async (id) => {
-  const trainer = trainers[id];
+  if (id === null) return {name: "Nenhum", icon: unknown};
+  const trainer = trainers[id-1];
   const specificTrainerIcon = await import(
     `./Assets/Images/Trainers/${trainer.icon}`
   );
