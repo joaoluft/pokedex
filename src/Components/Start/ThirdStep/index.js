@@ -1,5 +1,5 @@
 import { Button } from "../../Button";
-import wavingPikachu from "./../../../Assets/Images/Start/waving_pikachu.gif";
+import professorImage from "./../../../Assets/Images/Start/professor.gif";
 import { useNavigate } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import {useThirdStep} from "./useThirdStep";
@@ -26,15 +26,15 @@ export const ThirdStep = ({ userData, setUserData }) => {
 
   return (
     <animated.div style={fadeAnim}>
-      <section className="px-6 flex flex-col items-center justify-center">
+      <section className="h-screen px-6 flex flex-col items-center justify-center gap-4">
         <h1 className="text-center text-3xl uppercase text-white font-semibold">
           Boas-vindas {userData.username}!
         </h1>
         <div className="w-full flex items-center justify-center">
           <img
-            className="w-full sm:w-2/5"
+            className="w-[35%] sm:w-[12%]"
             draggable="false"
-            src={wavingPikachu}
+            src={professorImage}
             alt="Gif animado do pokemon Pikachu Acenando"
           />
         </div>

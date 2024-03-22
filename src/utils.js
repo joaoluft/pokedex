@@ -22,7 +22,6 @@ export const getPokemonsData = async ({
   let filteredList = pokemons;
 
   if (search !== "") {
-    console.log(language, search)
     filteredList = filteredList.filter((pokemon) =>
       pokemon.name[language].toLowerCase().includes(search.toLowerCase())
     );

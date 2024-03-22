@@ -22,9 +22,9 @@ export const SecondStep = ({ userData, setUserData, stepControl }) => {
 
   return (
     <animated.div style={fadeAnim}>
-      <section>
-        <h1 className="text-3xl text-center font-bold pb-6 text-white">Olá, {userData && userData.username}</h1>
-        <h2 className="text-white font-bold text-center pb-6 text-2xl">
+      <section className="h-screen flex flex-col items-center justify-center">
+        <h1 className="text-3xl text-center font-bold pb-6 text-white capitalize">Olá, {userData && userData.username}</h1>
+        <h2 className="text-gray-100 font-semibold text-center pb-6 text-2xl">
           Escolha seu treinador(a)
         </h2>
         <div className="flex flex-col gap-4">
@@ -38,7 +38,7 @@ export const SecondStep = ({ userData, setUserData, stepControl }) => {
               >
                 <img
                   draggable="false"
-                  className="rounded-full w-24 h-24 md:w-32 md:h-32 bg-gray-50/50 border border-white "
+                  className="rounded-full w-24 h-24 md:w-32 md:h-32 bg-gradient-to-t from-gray-100/30 border-2 border-white"
                   src={trainer.icon}
                   alt={trainer.name}
                 />
@@ -52,7 +52,7 @@ export const SecondStep = ({ userData, setUserData, stepControl }) => {
               <img
                 src={unknown}
                 draggable="false"
-                className="rounded-full w-24 h-24 md:w-32 md:h-32 bg-gray-50/50 border border-white"
+                className="rounded-full w-24 h-24 md:w-32 md:h-32 bg-gradient-to-t from-gray-100/30 border-2 border-white"
                 alt="Personagem indefinido"
               />
               <p className="text-center text-white pt-2">Nenhum</p>

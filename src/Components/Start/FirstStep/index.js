@@ -15,7 +15,7 @@ export const FirstStep = ({ stepControl, setUserData }) => {
 
   return (
     <animated.div style={fadeAnim}>
-      <section className="px-10 md:px-0 flex flex-col items-center justify-center gap-8">
+      <section className="h-screen px-10 md:px-0 flex flex-col items-center justify-center gap-8">
         <img draggable="false" className="w-full md:w-1/2" src={logo} alt="Logo do anime Pokémon" />
         <form onSubmit={nameStartHandler} className="flex flex-col gap-3">
           <InputText

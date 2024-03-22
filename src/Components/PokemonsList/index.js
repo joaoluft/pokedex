@@ -10,7 +10,7 @@ import { useContext, useState } from 'react';
 import { PokemonModal } from '../PokemonModal';
 
 export const PokemonsList = () => {
-  const { config, setConfig } = useContext(PokedexContext);
+  const { config } = useContext(PokedexContext);
 
   const [modalData, setModalData] = useState({});
 
@@ -49,20 +49,19 @@ export const PokemonsList = () => {
           <SelectType onChange={addTypeFilterHandler} types={types} />
         </div>
 
-        <div className="flex animation-all gap-2 items-center justify-center pt-4 pb-6">
+        <div className="flex gap-2 items-center justify-center pt-4 pb-6">
           {filter.types.map((filter) => (
             <div
               onClick={() => removeTypeFilter(filter)}
               key={filter}
-              className="
-                text-white 
+              className={`text-white 
                 flex gap-1 
                 items-center 
                 justify-center 
-                bg-[#c7a008] 
+                bg-[${typesColors[filter]}] 
                 px-2 
                 rounded-full 
-                py-1"
+                py-1`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,10 +96,10 @@ export const PokemonsList = () => {
                 key={pokemon.id}
               >
                 <img
-                draggable="false"
+                  draggable="false"
                   className="bg-gray-200/75 p-3 rounded-lg"
                   src={pokemon.icon}
-                  alt=""
+                  alt="Imagem pokémon"
                 />
 
                 <span className="text-center py-2 text-gray-700">
