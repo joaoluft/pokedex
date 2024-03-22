@@ -11,6 +11,7 @@ export const LanguageSelector = () => {
 
     return (
         <select 
+        defaultValue={config.language}
         className="border-2 
         text-gray-600 
         border-gray-300 
