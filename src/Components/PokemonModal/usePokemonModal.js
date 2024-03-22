@@ -6,7 +6,7 @@ import captureIcon from './../../Assets/Images/capture.gif';
 import { Capturing, Success, Fail } from './../Capture';
 import { typesColors } from "./../../Constants/types";
 
-export const usePokemonModal = (initialData, onClose) => {
+export const usePokemonModal = (initialData, onClose, profile) => {
   const { config } = useContext(PokedexContext);
   const { current = false, open } = initialData;
   const [isVisible, setIsVisible] = useState(open);
@@ -37,7 +37,6 @@ export const usePokemonModal = (initialData, onClose) => {
   const closeModal = () => {
     setIsVisible(false);
     setClosing(true); 
-    setCaptureStep(0)
   };
 
   const startCapturingHandler = () => {
@@ -51,8 +50,8 @@ export const usePokemonModal = (initialData, onClose) => {
     const captureStep = async () => {
       for (let i = 0; i < 3; i++) {
 
-        // 98% de chance de dar certo
-        const captureResult = Math.random() < 0.98;
+        // 90% de chance de dar certo
+        const captureResult = Math.random() < 0.90;
   
         captureAttempts.push(captureResult);
   
@@ -107,7 +106,14 @@ export const usePokemonModal = (initialData, onClose) => {
         </button>
       </div>
       <div className="flex flex-col gap-2 items-center pt-20">
-        <h1 className="font-semibold text-xl text-gray-600">{current.name[config.language]}</h1>
+        {!profile ? (
+          <h1 className="font-semibold text-xl text-gray-600">{current.name[config.language]}</h1>
+        ) : (
+          <>
+            <h1 className="text-gray-600 text-xl font-semibold">{current.surname}</h1>
+            <h2 className="text-md text-gray-400 pb-2">{current.name[config.language]}</h2>
+          </>
+        )}
         <div className="flex gap-2 items-center justify-center">
           {current.type.map((type) => (
             <div
@@ -118,7 +124,7 @@ export const usePokemonModal = (initialData, onClose) => {
             </div>
           ))}
         </div>
-        <div className="pt-6 px-10 text-sm flex flex-wrap gap-3 text-gray-800 items-center justify-center">
+        <div className="pt-6 pb-4 px-10 text-sm flex flex-wrap gap-3 text-gray-800 items-center justify-center">
           <span>HP: {current.base.HP}</span>
           <span>Attack: {current.base.Attack}</span>
           <span>Defense: {current.base.Defense}</span>
@@ -126,12 +132,14 @@ export const usePokemonModal = (initialData, onClose) => {
           <span>Sp. Defense: {current.base["Sp. Defense"]}</span>
           <span>Speed: {current.base.Speed}</span>
         </div>
+        {!profile && (
         <div className="pt-4 w-full flex items-center justify-center">
           <button onClick={startCapturingHandler} className="flex gap-3 items-center justify-center bg-red-500 text-white px-4 py-2.5 rounded-xl font-medium text-sm uppercase">
             <img draggable="false" className="w-6" src={captureIcon} alt="" />
             <span>Capturar</span>
           </button>
         </div>
+        )}
       </div>
     </div>
   );

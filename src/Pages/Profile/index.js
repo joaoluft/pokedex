@@ -37,7 +37,7 @@ export const Profile = () => {
     overflow-auto">
       <animated.div style={fadeAnim}>
         <Banner user={data} trainer={trainer} />
-        <Pokedex />
+        <Pokedex user={data} />
       </animated.div>
     </main>
   );

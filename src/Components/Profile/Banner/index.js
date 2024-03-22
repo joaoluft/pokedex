@@ -18,10 +18,10 @@ export const Banner = ({user, trainer}) => {
           <span>VOLTAR</span>
         </div>
         <ColorExtractor getColors={setBannerColorHandler}>
-          <img className="absolute -bottom-14 w-36 bg-gradient-to-t from-gray-100/30 rounded-full border-2 border-white" draggable="false" src={trainer.icon} alt="Logo treinador(a) pokemon" />
+          <img className="absolute -bottom-20 w-52 h-52 bg-gradient-to-t from-gray-100/30 rounded-full border-2 border-white" draggable="false" src={trainer.icon} alt="Logo treinador(a) pokemon" />
         </ColorExtractor>
       </div>
-      <div className="flex flex-col gap-2 items-center justify-center pt-20">
+      <div className="flex flex-col gap-2 items-center justify-center pt-24">
         <h1 className="font-semibold text-xl text-gray-600">{trainer.name}</h1>
         <h1 className="font-semibold text-gray-700">{user.username}</h1>
       </div>

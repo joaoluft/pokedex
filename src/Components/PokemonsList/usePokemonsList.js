@@ -9,8 +9,7 @@ export const usePokemonsList = () => {
   const [filter, setFilter] = useState({
     quantity: 20,
     search: "",
-    types: [],
-    language: config.language,
+    types: []
   });
 
   useEffect(() => {
@@ -24,14 +23,15 @@ export const usePokemonsList = () => {
   }, []);
 
   useEffect(() => {
-    getPokemonsData(filter)
+    console.log(config.language)
+    getPokemonsData({...filter, language: config.language})
       .then((res) => {
         setPokemons(res);
       })
       .catch((err) => {
         console.error(err);
       });
-  }, [filter]);
+  }, [filter, config.language]);
 
   const updateSearchFilter = (value) => {
     setFilter((prevFilter) => ({ ...prevFilter, search: value }));
