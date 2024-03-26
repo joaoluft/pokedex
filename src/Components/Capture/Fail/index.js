@@ -1,4 +1,4 @@
-import failIcon from "./../../../Assets/Images/fail.gif";
+import failIcon from "Assets/Images/fail.gif";
 import { useSpring, animated } from 'react-spring';
 
 export const Fail = ({ closeModal }) => {

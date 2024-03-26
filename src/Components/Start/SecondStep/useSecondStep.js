@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTrainersData } from "./../../../utils";
+import { getTrainersData } from "utils";
 
 export const useSecondStep = () => {
   const [trainers, setTrainers] = useState([]);

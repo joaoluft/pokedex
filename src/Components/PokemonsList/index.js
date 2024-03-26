@@ -5,12 +5,11 @@ import { SelectType } from '../SelectType';
 import { LanguageSelector } from '../LanguageSelector';
 import { typesColors } from '../../Constants/types';
 import { animated, useSpring } from 'react-spring';
-import { PokedexContext } from "./../../Contexts/PokedexContext";
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { PokemonModal } from '../PokemonModal';
+import { PokemonCard } from '../PokemonCard';
 
 export const PokemonsList = () => {
-  const { config } = useContext(PokedexContext);
 
   const [modalData, setModalData] = useState({});
 
@@ -84,38 +83,7 @@ export const PokemonsList = () => {
         <div className="flex items-center justify-center gap-8 flex-wrap">
           {pokemons &&
             pokemons.map((pokemon) => (
-              <div
-                onClick={() => setModalData({current: pokemon, open: true})}
-                className="
-                  cursor-pointer 
-                  flex flex-col 
-                  justify-center 
-                  bg-gray-100 
-                  p-3 
-                  rounded-xl"
-                key={pokemon.id}
-              >
-                <img
-                  draggable="false"
-                  className="bg-gray-200/75 p-3 rounded-lg"
-                  src={pokemon.icon}
-                  alt="Imagem pokémon"
-                />
-
-                <span className="text-center py-2 text-gray-700">
-                  {pokemon.name[config.language]}
-                </span>
-
-                <div className="flex gap-2 items-center justify-center">
-                  {pokemon.type.map((type) => (
-                    <div
-                      key={type + pokemon.id}
-                      className={`text-gray-100 text-xs rounded-lg px-2 py-1 bg-[${typesColors[type]}]`}>
-                      {type}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <PokemonCard pokemon={pokemon} onClick={() => setModalData({current: pokemon, open: true})} />
             ))}
         </div>
 

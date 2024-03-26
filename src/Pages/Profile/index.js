@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "./../../Contexts/UserContext";
+import { UserContext } from "Contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { useSpring, animated } from 'react-spring';
-import { Banner, Pokedex } from "../../Components/Profile";
-import { getTrainerData } from "../../utils";
+import { Banner, Pokedex } from "Components/Profile";
+import { getTrainerData } from "utils";
 
 export const Profile = () => {
   const { data } = useContext(UserContext);

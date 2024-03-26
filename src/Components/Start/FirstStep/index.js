@@ -1,8 +1,8 @@
-import logo from "./../../../Assets/Images/pokemon_logo.png";
-import { InputText } from "../../InputText";
-import { Button } from "../../Button";
-import { useSpring, animated } from 'react-spring';
-import {useFirstStep} from './useFirstStep';
+import { useSpring, animated } from "react-spring";
+import logo from "Assets/Images/pokemon_logo.png";
+import { InputText } from "Components/InputText";
+import { Button } from "Components/Button";
+import {useFirstStep} from "./useFirstStep";
 
 export const FirstStep = ({ stepControl, setUserData }) => {
   const { error, nameStartHandler } = useFirstStep({ stepControl, setUserData });

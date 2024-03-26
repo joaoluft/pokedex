@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
-import capturingIcon from "./../../../Assets/Images/capturing.gif";
+import capturingIcon from "Assets/Images/capturing.gif";
 
 export const Capturing = ({attemps}) => {
   const fadeAnim = useSpring({

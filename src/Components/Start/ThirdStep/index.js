@@ -1,11 +1,11 @@
-import { Button } from "../../Button";
-import professorImage from "./../../../Assets/Images/Start/professor.gif";
+import { Button } from "Components/Button";
+import professorImage from "Assets/Images/Start/professor.gif";
 import { useNavigate } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
-import {useThirdStep} from "./useThirdStep";
+import { useThirdStep } from "./useThirdStep";
 
 export const ThirdStep = ({ userData, setUserData }) => {
-  const {nextChatStep, isLastChatStep, getCurrentChatMessage } = useThirdStep(1, userData);
+  const { nextChatStep, isLastChatStep, getCurrentChatMessage } = useThirdStep(1, userData);
 
   const fadeAnim = useSpring({
     opacity: 1,

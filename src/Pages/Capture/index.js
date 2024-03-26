@@ -1,4 +1,4 @@
-import { PokemonsList } from "../../Components/PokemonsList";
+import { PokemonsList } from "Components/PokemonsList";
 import {useCapture} from "./useCapture";
 import { useNavigate } from "react-router-dom";
 
