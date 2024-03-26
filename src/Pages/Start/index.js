@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { FirstStep, SecondStep, ThirdStep } from "../../Components/Start";
-import { UserContext } from "../../Contexts/UserContext";
+import { FirstStep, SecondStep, ThirdStep } from "Components/Start";
+import { UserContext } from "Contexts/UserContext";
 
 export const Start = () => {
   const [step, setStep] = useState(1);

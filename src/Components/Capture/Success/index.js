@@ -1,9 +1,9 @@
-import successIcon from "./../../../Assets/Images/success.gif";
-import { InputText } from "./../../InputText";
-import { useSpring, animated } from 'react-spring';
-import { UserContext } from "./../../../Contexts/UserContext";
-import { PokedexContext } from "./../../../Contexts/PokedexContext";
 import { useContext } from "react";
+import { useSpring, animated } from 'react-spring';
+import successIcon from "Assets/Images/success.gif";
+import { InputText } from "Components/InputText";
+import { UserContext } from "Contexts/UserContext";
+import { PokedexContext } from "Contexts/PokedexContext";
 
 export const Success = ({ pokemon, closeModal }) => {
 
@@ -21,7 +21,6 @@ export const Success = ({ pokemon, closeModal }) => {
     const form = new FormData(event.target);
     const surname = form.get("surname");
 
-    console.log(surname)
     if (surname.length < 3) return;
 
     try {

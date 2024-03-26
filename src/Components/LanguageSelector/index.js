@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { PokedexContext } from "../../Contexts/PokedexContext"
+import { PokedexContext } from "Contexts/PokedexContext"
 
 export const LanguageSelector = () => {
 

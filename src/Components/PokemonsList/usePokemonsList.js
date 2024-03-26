@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
-import { getPokemonsData, getPokemonsTypes } from "../../utils";
-import { PokedexContext } from "../../Contexts/PokedexContext";
+import { getPokemonsData, getPokemonsTypes } from "utils";
+import { PokedexContext } from "Contexts/PokedexContext";
 
 export const usePokemonsList = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -23,7 +23,6 @@ export const usePokemonsList = () => {
   }, []);
 
   useEffect(() => {
-    console.log(config.language)
     getPokemonsData({...filter, language: config.language})
       .then((res) => {
         setPokemons(res);

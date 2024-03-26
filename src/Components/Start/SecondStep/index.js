@@ -1,5 +1,5 @@
 import { useSecondStep } from "./useSecondStep";
-import unknown from "./../../../Assets/Images/Trainers/unknown.png";
+import unknown from "Assets/Images/Trainers/unknown.png";
 import { useSpring, animated } from "react-spring";
 
 export const SecondStep = ({ userData, setUserData, stepControl }) => {

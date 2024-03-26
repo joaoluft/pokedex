@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../Contexts/UserContext";
-import { getTrainerData } from "../../utils";
+import { UserContext } from "Contexts/UserContext";
+import { getTrainerData } from "utils";
 import { useNavigate } from "react-router-dom";
 
 export const useCapture = () => {
