@@ -1,9 +1,37 @@
-# Pokédex App
+# Pokedex
 
-### Descrição
-A Pokédex App é uma aplicação simples desenvolvida para permitir que os treinadores Pokémon visualizem uma lista de Pokémon, capturem novos Pokémon e vejam os detalhes dos Pokémon capturados.
+[![Technologies Used](https://skillicons.dev/icons?i=javascript,react,tailwind)](https://skillicons.dev)
 
-### Funcionalidades Principais
-Visualização da Lista de Pokémon: Os usuários podem visualizar uma lista de Pokémon disponíveis.
-Captura de Pokémon: Os usuários podem capturar novos Pokémon para adicionar à sua coleção.
-Visualização de Detalhes: Os usuários podem ver os detalhes dos Pokémon capturados, incluindo estatísticas básicas e tipos.
+## Introdução
+
+Bem-vindo ao Pokédex, um aplicativo React simples para explorar informações sobre Pokémons e capturá-los para você. Siga os passos abaixo para começar:
+
+### Clonando o Repositório
+
+Clone o repositório para sua máquina local usando Git:
+
+```bash
+git clone https://github.com/joaoluft/pokedex.git
+```
+
+### Instalando Dependências
+
+Navegue até o diretório do projeto e instale as dependências necessárias usando npm (Node Package Manager):
+
+```bash
+cd pokedex
+npm install --force
+```
+
+### Iniciando o Aplicativo
+
+Depois que as dependências forem instaladas, você pode iniciar o servidor de desenvolvimento executando:
+
+```bash
+npm start
+```
+
+Este comando iniciará o servidor de desenvolvimento e abrirá o Pokédex App em seu navegador padrão. Agora você pode interagir com o aplicativo localmente.
+
+# Visualização:
+[Demo clique aqui!](https://rocket-pokedex.vercel.app/)
